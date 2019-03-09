@@ -49,7 +49,13 @@ namespace CoreCourse.CSharpFeatures_ED.Models
                 Genre = "Programming",
                 Sequel = null
             };
-            return new Book[] { lotr1, lotr2, lotr3, littleprince, programming, null };
+            Book warandpeace = new Book
+            {
+                Title = "War and Peace",
+                Pages = 1392,
+                Sequel = null
+            };
+            return new Book[] { lotr1, lotr2, lotr3, littleprince, programming, warandpeace, null };
         }
     }
 }
