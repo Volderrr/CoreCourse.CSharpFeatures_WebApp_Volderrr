@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +16,8 @@ namespace CoreCourse.CSharpFeatures_ED
     {
         static void Main(string[] args)
         {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en-US");
+
             List<string> bookInfos = new List<string>();
 
             foreach (Book book in Book.GetAll())
@@ -25,6 +28,12 @@ namespace CoreCourse.CSharpFeatures_ED
                 //bookInfos.Add(string.Format("Title: {0}, Pages: {1}, Sequel: {2}", title, pages, sequelTitle));
                 bookInfos.Add($"Title: {title}, Pages: {pages:N0}, Sequel: {sequelTitle}");
             }
+            BookRepository bookRepository = new BookRepository { Books = Book.GetAll() };
+
+            //calculate total number of pages
+            int totalPages = bookRepository.TotalPages();
+            bookInfos.Add($"\r\nTotal pages in repository: {totalPages:N0}");
+
             PrintStrings(bookInfos);
 
             //prevent quitting in debug mode
