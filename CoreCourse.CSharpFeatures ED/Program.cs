@@ -22,7 +22,8 @@ namespace CoreCourse.CSharpFeatures_ED
                 string title = book?.Title ?? "[untitled book]";
                 int? pages = book?.Pages ?? 0;
                 string sequelTitle = book?.Sequel?.Title ?? "[no sequels]";
-                bookInfos.Add(string.Format("Title: {0}, Pages: {1}, Sequel: {2}", title, pages, sequelTitle));
+                //bookInfos.Add(string.Format("Title: {0}, Pages: {1}, Sequel: {2}", title, pages, sequelTitle));
+                bookInfos.Add($"Title: {title}, Pages: {pages:N0}, Sequel: {sequelTitle}");
             }
             PrintStrings(bookInfos);
 
