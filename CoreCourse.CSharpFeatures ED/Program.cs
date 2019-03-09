@@ -33,6 +33,9 @@ namespace CoreCourse.CSharpFeatures_ED
             //calculate total number of pages
             int totalPages = bookRepository.TotalPages();
             bookInfos.Add($"\r\nTotal pages in repository: {totalPages:N0}");
+            //calculate total pages of all known books
+            int totalPagesKnownBooks = Book.GetAll().TotalPages();
+            bookInfos.Add($"Total pages of known books: {totalPagesKnownBooks:N0}");
 
             PrintStrings(bookInfos);
 
